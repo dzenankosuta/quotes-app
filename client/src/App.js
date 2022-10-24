@@ -3,6 +3,12 @@ import axios from "axios";
 
 function App() {
   const [accessToken, setAccessToken] = useState(null);
+
+  const handleLogout = () => {
+    setAccessToken(null);
+    window.localStorage.setItem("accessToken", accessToken);
+  };
+
   useEffect(() => {
     axios
       .post("http://localhost:8000/sessions", {
@@ -31,7 +37,12 @@ function App() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accessToken]);
-  return <div>App Works!</div>;
+  return (
+    <div>
+      App Works!
+      <button onClick={handleLogout}>Logout</button>
+    </div>
+  );
 }
 
 export default App;
