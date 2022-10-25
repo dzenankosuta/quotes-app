@@ -1,13 +1,15 @@
 import React, { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TokenContext = createContext();
 
 const TokenProvider = ({ children }) => {
   const [accessToken, setAccessToken] = useState(null);
-
+  const navigate = useNavigate();
   const handleLogout = () => {
     setAccessToken(null);
-    localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("accessToken", null);
+    navigate("/");
   };
 
   const values = { accessToken, setAccessToken, handleLogout };
