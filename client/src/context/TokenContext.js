@@ -4,7 +4,13 @@ const TokenContext = createContext();
 
 const TokenProvider = ({ children }) => {
   const [accessToken, setAccessToken] = useState(null);
-  const values = { accessToken, setAccessToken };
+
+  const handleLogout = () => {
+    setAccessToken(null);
+    localStorage.setItem("accessToken", accessToken);
+  };
+
+  const values = { accessToken, setAccessToken, handleLogout };
   return (
     <TokenContext.Provider value={values}>{children}</TokenContext.Provider>
   );
