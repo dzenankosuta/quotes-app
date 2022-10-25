@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import axios from "axios";
+import { TokenContext } from "./context/TokenContext";
 
 function App() {
-  const [accessToken, setAccessToken] = useState(null);
+  const { accessToken, setAccessToken } = useContext(TokenContext);
 
   const handleLogout = () => {
     setAccessToken(null);
