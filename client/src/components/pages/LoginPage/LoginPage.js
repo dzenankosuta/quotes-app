@@ -2,10 +2,21 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import { TokenContext } from "../../../context/TokenContext";
 import { useNavigate } from "react-router-dom";
+
+import {
+  TextInput,
+  PasswordInput,
+  Button,
+  Box,
+  Group,
+  Alert,
+} from "@mantine/core";
+
 const LoginPage = () => {
   const navigate = useNavigate();
   const { setAccessToken } = useContext(TokenContext);
   const [userData, setUserData] = useState({ username: "", password: "" });
+  const [invalidCredentials, setInvalidCredentials] = useState(false);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -16,19 +27,22 @@ const LoginPage = () => {
       })
       .then((response) => {
         console.log(response.data.accessToken);
+        setInvalidCredentials(false);
         setAccessToken(response.data.accessToken);
         localStorage.setItem("accessToken", response.data.accessToken);
         navigate("/quotes");
+        window.scrollTo(0, 0);
         // console.log(accessToken);
       })
       .catch((error) => {
         if (error.response.status === 401) {
-          console.log(`Invalid credentials!`);
+          setInvalidCredentials(true);
           setAccessToken(null);
           localStorage.setItem("accessToken", null);
           //   console.log(accessToken);
         } else {
           console.log(error);
+          setInvalidCredentials(true);
           setAccessToken(null);
           localStorage.setItem("accessToken", null);
           // console.log(accessToken);
@@ -36,31 +50,61 @@ const LoginPage = () => {
       });
   };
   return (
-    <div>
-      LoginPage
-      <form method="POST">
-        <input
-          type="text"
-          placeholder="username"
-          value={userData.username}
-          onChange={(event) =>
-            setUserData((prev) => ({ ...prev, username: event.target.value }))
-          }
-          required
-        />
-        <input
-          type="password"
-          placeholder="password"
-          value={userData.password}
-          onChange={(event) =>
-            setUserData((prev) => ({ ...prev, password: event.target.value }))
-          }
-          required
-        />
-        <button type="submit" onClick={handleLogin}>
-          LOGIN
-        </button>
-      </form>
+    <div
+      style={{
+        height: "50vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Box sx={{ minWidth: 340 }} mx="auto">
+        <form onSubmit={handleLogin}>
+          {invalidCredentials ? (
+            <Alert radius="md" title="Invalid credentials!" color="red">
+              Invalid username or password
+            </Alert>
+          ) : (
+            <></>
+          )}
+          <TextInput
+            withAsterisk
+            label="Username"
+            placeholder="Username"
+            value={userData.username}
+            onChange={(event) =>
+              setUserData((prev) => ({ ...prev, username: event.target.value }))
+            }
+            required
+          />
+          <PasswordInput
+            withAsterisk
+            label="Password"
+            placeholder="Password"
+            value={userData.password}
+            onChange={(event) =>
+              setUserData((prev) => ({ ...prev, password: event.target.value }))
+            }
+            required
+          />
+
+          <Group
+            position="right"
+            mt="xl"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <Button
+              type="submit"
+              uppercase
+              color="cyan"
+              radius="md"
+              style={{ width: "10rem", letterSpacing: "0.07rem" }}
+            >
+              LOGIN
+            </Button>
+          </Group>
+        </form>
+      </Box>
     </div>
   );
 };

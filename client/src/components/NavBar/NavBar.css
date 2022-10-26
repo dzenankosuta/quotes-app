@@ -26,6 +26,7 @@
   text-decoration: none;
   font-size: larger;
   font-style: italic;
+  letter-spacing: 0.07rem;
   font-weight: 600;
   color: #f0fffa;
 }
@@ -59,6 +60,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  letter-spacing: 0.07rem;
 }
 
 .btn:hover {
