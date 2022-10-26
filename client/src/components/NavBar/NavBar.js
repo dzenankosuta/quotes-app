@@ -34,7 +34,7 @@ const NavBar = () => {
       >
         QUOTES
       </NavLink>
-      <button className="button-39" onClick={handleLogout}>
+      <button className="btn" onClick={handleLogout}>
         LOGOUT
       </button>
     </div>

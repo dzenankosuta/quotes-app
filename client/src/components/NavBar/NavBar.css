@@ -38,7 +38,7 @@
   color: #212926;
 }
 
-.button-39 {
+.btn {
   background-color: #f0f8ff;
   border: 1px solid rgb(209, 213, 219);
   border-radius: 0.5rem;
@@ -61,15 +61,15 @@
   touch-action: manipulation;
 }
 
-.button-39:hover {
+.btn:hover {
   background-color: #58766c;
 }
 
-.button-39:focus {
+.btn:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
-.button-39:focus-visible {
+.btn:focus-visible {
   box-shadow: none;
 }
