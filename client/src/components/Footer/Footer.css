@@ -1,4 +1,5 @@
 .footer {
+  height: 35vh;
   background: linear-gradient(
     to top,
     rgba(123, 167, 153, 0.4),
@@ -40,6 +41,11 @@
   font-style: italic;
 }
 
+.aauthor:hover {
+  transition: 0.2s;
+  transform: scale(1.2);
+}
+
 .footer-end {
   display: flex;
   flex-direction: column;
@@ -53,6 +59,6 @@
 }
 
 .svg:hover {
-  transition: 0.1s;
+  transition: 0.2s;
   transform: scale(1.2);
 }

@@ -9,10 +9,12 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Routes>
-        <Route path={"/"} element={<LoginPage />} />
-        <Route path={"/quotes"} element={<Quotes />} />
-      </Routes>
+      <main style={{ minHeight: "50vh" }}>
+        <Routes>
+          <Route path={"/"} element={<LoginPage />} />
+          <Route path={"/quotes"} element={<Quotes />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   );
