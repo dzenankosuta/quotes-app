@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import GoToLogin from "../../modals/GoToLogin";
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
@@ -20,9 +20,7 @@ const Quotes = () => {
   return (
     <div>
       {localStorage.getItem("accessToken") === "null" ? (
-        <h2>
-          Go to <Link to={"/"}>Login</Link> first.
-        </h2>
+        <GoToLogin />
       ) : (
         <>
           {quotes.map((quote) => (
