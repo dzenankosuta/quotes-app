@@ -1,7 +1,7 @@
 import React from "react";
-import LoginPage from "./pages/LoginPage/LoginPage";
+import LoginPage from "./components/pages/LoginPage/LoginPage";
 import { Route, Routes } from "react-router-dom";
-import Quotes from "./pages/Quotes/Quotes";
+import Quotes from "./components/pages/QuotesPage/QuotesPage";
 import NavBar from "./NavBar/NavBar";
 
 function App() {
