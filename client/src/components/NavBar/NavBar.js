@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { TokenContext } from "../context/TokenContext";
+import { TokenContext } from "../../context/TokenContext";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -21,7 +21,11 @@ const NavBar = () => {
         style={{ height: "100%", position: "absolute", left: "3rem" }}
         to="/"
       >
-        <img src={require("../images/logo2.png")} alt="logo" className="img" />
+        <img
+          src={require("../../images/logo2.png")}
+          alt="logo"
+          className="img"
+        />
       </NavLink>
       <NavLink
         className="link"
