@@ -18,11 +18,17 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <NavLink
-        style={{ height: "100%", position: "absolute", left: "3rem" }}
+        style={{
+          height: "100%",
+          position: "absolute",
+          left: "3rem",
+          top: "0.3rem",
+          alignSelf: "flex-end",
+        }}
         to="/"
       >
         <img
-          src={require("../../images/logo2.png")}
+          src={require("../../images/logo.png")}
           alt="logo"
           className="img"
         />

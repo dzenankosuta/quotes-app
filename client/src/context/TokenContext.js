@@ -10,6 +10,7 @@ const TokenProvider = ({ children }) => {
     setAccessToken(null);
     localStorage.setItem("accessToken", null);
     navigate("/");
+    window.scrollTo(0, 0);
   };
 
   const values = { accessToken, setAccessToken, handleLogout };
