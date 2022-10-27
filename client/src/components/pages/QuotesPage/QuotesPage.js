@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import GoToLogin from "../../modals/GoToLogin";
+import Quote from "../../Quote/Quote";
+import "./QuotesPage.css";
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
@@ -18,16 +20,19 @@ const Quotes = () => {
       .catch((error) => console.log(error));
   }, []);
   return (
-    <div>
+    <div className="quotes">
       {localStorage.getItem("accessToken") === "null" ? (
         <GoToLogin />
       ) : (
         <>
           {quotes.map((quote) => (
-            <div key={quote.id}>
-              <h2>{quote.content}</h2>
-              <h5>{quote.author}</h5>
-            </div>
+            <Quote
+              key={quote.id}
+              content={quote.content}
+              authorName={quote.author}
+              upvotesCount={quote.upvotesCount}
+              downvotesCount={quote.downvotesCount}
+            />
           ))}
         </>
       )}

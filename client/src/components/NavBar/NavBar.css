@@ -10,6 +10,7 @@
   padding-right: 3rem;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 .img {
@@ -19,9 +20,6 @@
 
 .link {
   width: 6rem;
-  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-align: center;
   text-decoration: none;
   font-size: larger;
@@ -36,6 +34,20 @@
   padding: 0.6rem;
   border-radius: 0.5rem;
   background-color: #f0f8ff;
+  color: #212926;
+}
+
+.link-active {
+  width: 6rem;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  background-color: #f0f8ff;
+  text-align: center;
+  text-decoration: none;
+  font-size: larger;
+  font-style: italic;
+  letter-spacing: 0.07rem;
+  font-weight: 600;
   color: #212926;
 }
 

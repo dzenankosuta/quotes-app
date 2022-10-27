@@ -5,16 +5,6 @@ import "./NavBar.css";
 
 const NavBar = () => {
   const { handleLogout } = useContext(TokenContext);
-  const activeStyle = {
-    padding: "0.6rem",
-    borderRadius: "0.5rem",
-    backgroundColor: "#f0f8ff",
-    color: "#212926",
-  };
-  const classicStyle = {
-    backgroundColor: "#7ba798",
-    color: "#f0fffa",
-  };
   return (
     <div className="navbar">
       <NavLink
@@ -34,9 +24,8 @@ const NavBar = () => {
         />
       </NavLink>
       <NavLink
-        className="link"
+        className={({ isActive }) => (isActive ? "link-active" : "link")}
         to="/quotes"
-        style={({ isActive }) => (isActive ? activeStyle : classicStyle)}
       >
         QUOTES
       </NavLink>

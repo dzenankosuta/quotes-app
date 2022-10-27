@@ -1,0 +1,8 @@
+.quotes {
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
