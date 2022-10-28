@@ -54,11 +54,22 @@
 .btn2 {
   width: 1rem;
   height: 1rem;
-  color: #f0fffa;
   background-color: #7ba798;
   border: none;
   font-size: 2rem;
   cursor: pointer;
+}
+
+.vote-class {
+  color: #f0fffa;
+}
+
+.upvote-class {
+  color: #93dd86;
+}
+
+.downvote-class {
+  color: #f58a8a;
 }
 
 .btn2:nth-of-type(1):active {

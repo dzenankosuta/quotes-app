@@ -32,6 +32,7 @@ const Quotes = () => {
               authorName={quote.author}
               upvotesCount={quote.upvotesCount}
               downvotesCount={quote.downvotesCount}
+              givenVote={quote.givenVote}
             />
           ))}
         </>
