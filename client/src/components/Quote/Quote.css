@@ -77,6 +77,30 @@
   letter-spacing: 0.1rem;
 }
 
+.color1 {
+  color: #fe3c01;
+}
+
+.color2 {
+  color: #fea101;
+}
+
+.color3 {
+  color: #feed01;
+}
+
+.color4 {
+  color: #b2fe01;
+}
+
+.color5 {
+  color: #6ffe01;
+}
+
+.color6 {
+  color: #01d925;
+}
+
 .ratio {
   position: relative;
   top: 0.8rem;
