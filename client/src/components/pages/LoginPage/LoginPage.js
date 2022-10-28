@@ -64,14 +64,7 @@ const LoginPage = () => {
           </p>
         </div>
       ) : (
-        <div
-          style={{
-            height: "50vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <div className="main-login">
           <Box sx={{ minWidth: 340 }} mx="auto">
             <form onSubmit={handleLogin}>
               {invalidCredentials ? (
