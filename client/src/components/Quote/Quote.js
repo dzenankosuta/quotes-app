@@ -2,11 +2,14 @@ import React from "react";
 import "./Quote.css";
 
 const Quote = ({ content, authorName, upvotesCount, downvotesCount }) => {
+  const totalPercent = 100;
+  const percentPerVote = totalPercent / (upvotesCount + downvotesCount);
+  const upvotesPercent = Math.round(upvotesCount * percentPerVote);
   return (
     <div className="quote">
       <div className="left">
         <button className="btn2">&#129081;</button>
-        <p className="percent">100%</p>
+        <p className="percent">{upvotesPercent}%</p>
         <p className="ratio">
           {upvotesCount} / {downvotesCount}
         </p>
