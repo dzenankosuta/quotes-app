@@ -76,7 +76,7 @@ const Quote = ({
         setVote(response.data.givenVote);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
   const deleteDownvote = () => {
@@ -92,7 +92,7 @@ const Quote = ({
         setVote(response.data.givenVote);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
