@@ -5,6 +5,10 @@ import "./NavBar.css";
 
 const NavBar = () => {
   const { handleLogout } = useContext(TokenContext);
+  const btnSecondClass =
+    localStorage.getItem("accessToken") === "null"
+      ? "btn-invisible"
+      : "btn-visible";
   return (
     <div className="navbar">
       <NavLink
@@ -29,7 +33,7 @@ const NavBar = () => {
       >
         QUOTES
       </NavLink>
-      <button className="btn" onClick={handleLogout}>
+      <button className={`btn ${btnSecondClass}`} onClick={handleLogout}>
         LOGOUT
       </button>
     </div>

@@ -75,6 +75,14 @@
   letter-spacing: 0.07rem;
 }
 
+.btn-visible {
+  display: inline;
+}
+
+.btn-invisible {
+  visibility: hidden;
+}
+
 .btn:hover {
   background-color: #58766c;
 }
