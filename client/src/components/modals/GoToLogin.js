@@ -23,7 +23,7 @@ const GoToLogin = () => {
         <Text>To see quotes from our app, you must first log in.</Text>
 
         <Group mt="xl" style={{ display: "flex", justifyContent: "center" }}>
-          <Button color="cyan" radius="md" uppercase>
+          <Button color="teal" radius="md" uppercase>
             <Link to="/" style={{ textDecoration: "none", color: "#ffffff" }}>
               GO TO LOGIN PAGE
             </Link>
@@ -31,7 +31,7 @@ const GoToLogin = () => {
         </Group>
       </Modal>
       <Group position="center">
-        <Button color="cyan" radius="md" uppercase onClick={open}>
+        <Button color="teal" radius="md" uppercase onClick={open}>
           MESSAGE FOR YOU
         </Button>
       </Group>

@@ -109,7 +109,7 @@ const LoginPage = () => {
                 <Button
                   type="submit"
                   uppercase
-                  color="cyan"
+                  color="teal"
                   radius="md"
                   style={{ width: "10rem", letterSpacing: "0.07rem" }}
                 >
