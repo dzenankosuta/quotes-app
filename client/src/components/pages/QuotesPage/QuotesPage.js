@@ -4,6 +4,7 @@ import GoToLogin from "../../modals/GoToLogin";
 import Quote from "../../Quote/Quote";
 import "./QuotesPage.css";
 import { Pagination } from "@mantine/core";
+import FilterQuotes from "../../MultiSelect/FilterQuotes";
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
@@ -46,6 +47,7 @@ const Quotes = () => {
         <GoToLogin />
       ) : (
         <>
+          <FilterQuotes />
           {quotes.map((quote) => (
             <Quote
               key={quote.id}
