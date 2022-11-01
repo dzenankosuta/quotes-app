@@ -15,6 +15,9 @@ const FilterQuotes = () => {
       label: `${tag[0].toUpperCase()}${tag.slice(1, tag.length)}`,
     };
   });
+  const filteredQuotes = quotes.filter((quote) =>
+    quote.tags.some((el) => value.includes(el))
+  );
   useEffect(() => {
     axios
       .get("http://localhost:8000/quotes", {
@@ -25,22 +28,26 @@ const FilterQuotes = () => {
       .then((response) => {
         setQuotes(response.data.quotes);
         console.log(response.data.quotes);
+        console.log(filteredQuotes);
       })
       .catch((error) => console.log(error));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [value]);
   return (
-    <MultiSelect
-      data={dataToShow}
-      label="Select tags to filter quotes:"
-      placeholder="Pick all that you like"
-      value={value}
-      onChange={setValue}
-      searchable
-      searchValue={searchValue}
-      onSearchChange={onSearchChange}
-      nothingFound="Nothing found"
-    />
+    <>
+      <MultiSelect
+        data={dataToShow}
+        label="Select tags to filter quotes:"
+        placeholder="Pick all that you like"
+        value={value}
+        onChange={setValue}
+        searchable
+        searchValue={searchValue}
+        onSearchChange={onSearchChange}
+        nothingFound="Nothing found"
+      />
+      <p>{}</p>
+    </>
   );
 };
 
