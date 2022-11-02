@@ -11,7 +11,12 @@ import SortQuotes from "../../Select/SortQuotes";
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
   const [activePage, setPage] = useState(1);
-  const { toShowFiltered } = useContext(TokenContext);
+  const {
+    toShowFiltered,
+    setToShowFiltered,
+    toShowSelected,
+    setToShowSelected,
+  } = useContext(TokenContext);
 
   const pageSize = 5;
   const [totalQuotes, setTotalQuotes] = useState(1);
@@ -44,13 +49,15 @@ const Quotes = () => {
       })
       .catch((error) => console.log(error));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activePage, pageSize, totalQuotes]);
+  }, [activePage, pageSize, totalQuotes, toShowFiltered, toShowSelected]);
   return (
     <div className="quotes">
       {localStorage.getItem("accessToken") === "null" ? (
         <GoToLogin />
       ) : toShowFiltered ? (
         <FilterQuotes />
+      ) : toShowSelected ? (
+        <SortQuotes />
       ) : (
         <>
           <FilterQuotes />

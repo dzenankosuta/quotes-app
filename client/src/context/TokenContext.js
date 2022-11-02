@@ -6,6 +6,7 @@ const TokenContext = createContext();
 const TokenProvider = ({ children }) => {
   const [accessToken, setAccessToken] = useState(null);
   const [toShowFiltered, setToShowFiltered] = useState(false);
+  const [toShowSelected, setToShowSelected] = useState(false);
   const navigate = useNavigate();
   const handleLogout = () => {
     setAccessToken(null);
@@ -20,6 +21,8 @@ const TokenProvider = ({ children }) => {
     handleLogout,
     toShowFiltered,
     setToShowFiltered,
+    toShowSelected,
+    setToShowSelected,
   };
   return (
     <TokenContext.Provider value={values}>{children}</TokenContext.Provider>
