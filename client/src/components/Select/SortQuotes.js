@@ -44,7 +44,7 @@ const SortQuotes = () => {
       setToShowSelected(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value, activePage, pageSize, totalQuotes]);
+  }, [value, toShowSelected, activePage, totalQuotes]);
 
   return (
     <>

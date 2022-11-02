@@ -49,19 +49,20 @@ const Quotes = () => {
       })
       .catch((error) => console.log(error));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activePage, pageSize, totalQuotes, toShowFiltered, toShowSelected]);
-  return (
-    <div className="quotes">
-      {localStorage.getItem("accessToken") === "null" ? (
-        <GoToLogin />
-      ) : toShowFiltered ? (
-        <FilterQuotes />
-      ) : toShowSelected ? (
-        <SortQuotes />
-      ) : (
+  }, [activePage, totalQuotes, toShowFiltered, toShowSelected]);
+
+  const renderContent = () => {
+    if (localStorage.getItem("accessToken") === "null") {
+      return <GoToLogin />;
+    } else if (toShowFiltered) {
+      return <FilterQuotes />;
+    } else if (toShowSelected) {
+      return <SortQuotes />;
+    } else {
+      return (
         <>
-          <FilterQuotes />
           <SortQuotes />
+          <FilterQuotes />
           {quotes.map((quote) => (
             <Quote
               key={quote.id}
@@ -83,9 +84,10 @@ const Quotes = () => {
             radius="md"
           />
         </>
-      )}
-    </div>
-  );
+      );
+    }
+  };
+  return <div className="quotes">{renderContent()}</div>;
 };
 
 export default Quotes;
