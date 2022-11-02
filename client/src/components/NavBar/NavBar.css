@@ -32,14 +32,16 @@
 .link:hover {
   transition: 0.1s all ease-in-out;
   padding: 0.6rem;
+  border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   background-color: #f0f8ff;
-  color: #212926;
+  color: #111827;
 }
 
 .link-active {
   width: 6rem;
   padding: 0.6rem;
+  border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   background-color: #f0f8ff;
   text-align: center;
@@ -48,12 +50,18 @@
   font-style: italic;
   letter-spacing: 0.07rem;
   font-weight: 600;
-  color: #212926;
+  color: #111827;
+}
+
+.link-active:hover {
+  background-color: #58766c;
+  color: #111827;
+  border: 1px solid #d1d5db;
 }
 
 .btn {
   background-color: #f0f8ff;
-  border: 1px solid rgb(209, 213, 219);
+  border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   box-sizing: border-box;
   color: #111827;

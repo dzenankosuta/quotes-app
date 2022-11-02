@@ -5,6 +5,7 @@ const TokenContext = createContext();
 
 const TokenProvider = ({ children }) => {
   const [accessToken, setAccessToken] = useState(null);
+  const [toShowFiltered, setToShowFiltered] = useState(false);
   const navigate = useNavigate();
   const handleLogout = () => {
     setAccessToken(null);
@@ -13,7 +14,13 @@ const TokenProvider = ({ children }) => {
     window.scrollTo(0, 0);
   };
 
-  const values = { accessToken, setAccessToken, handleLogout };
+  const values = {
+    accessToken,
+    setAccessToken,
+    handleLogout,
+    toShowFiltered,
+    setToShowFiltered,
+  };
   return (
     <TokenContext.Provider value={values}>{children}</TokenContext.Provider>
   );

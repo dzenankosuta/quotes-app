@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import GoToLogin from "../../modals/GoToLogin";
 import Quote from "../../Quote/Quote";
 import "./QuotesPage.css";
 import { Pagination } from "@mantine/core";
 import FilterQuotes from "../../MultiSelect/FilterQuotes";
+import { TokenContext } from "../../../context/TokenContext";
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
   const [activePage, setPage] = useState(1);
+  const { toShowFiltered } = useContext(TokenContext);
+
   const pageSize = 5;
   const [totalQuotes, setTotalQuotes] = useState(1);
   const totalPages = Math.ceil(totalQuotes / pageSize);
@@ -45,6 +48,8 @@ const Quotes = () => {
     <div className="quotes">
       {localStorage.getItem("accessToken") === "null" ? (
         <GoToLogin />
+      ) : toShowFiltered ? (
+        <FilterQuotes />
       ) : (
         <>
           <FilterQuotes />
