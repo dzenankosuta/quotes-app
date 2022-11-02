@@ -51,11 +51,10 @@ const FilterQuotes = () => {
       <MultiSelect
         style={{ maxWidth: "65vw" }}
         data={dataToShow}
-        label="Select tags to filter quotes:"
-        placeholder="Pick all that you like"
+        label="Select tags to filter Quotes:"
+        placeholder="Pick tags that you like"
         value={value}
         onChange={setValue}
-        searchable
         nothingFound="Nothing found"
         clearButtonLabel="Clear selection"
         clearable

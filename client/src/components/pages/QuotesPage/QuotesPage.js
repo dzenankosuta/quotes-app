@@ -6,6 +6,7 @@ import "./QuotesPage.css";
 import { Pagination } from "@mantine/core";
 import FilterQuotes from "../../MultiSelect/FilterQuotes";
 import { TokenContext } from "../../../context/TokenContext";
+import SortQuotes from "../../Select/SortQuotes";
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
@@ -53,6 +54,7 @@ const Quotes = () => {
       ) : (
         <>
           <FilterQuotes />
+          <SortQuotes />
           {quotes.map((quote) => (
             <Quote
               key={quote.id}
