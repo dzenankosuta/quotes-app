@@ -5,13 +5,13 @@ import Quote from "../Quote/Quote";
 import { TokenContext } from "../../context/TokenContext";
 
 const FilterQuotes = () => {
-  const [value, setValue] = useState([]);
+  const [valueFilter, setValueFilter] = useState([]);
   const [quotes, setQuotes] = useState([]);
   const { toShowFiltered, setToShowFiltered } = useContext(TokenContext);
   const tags = quotes.map((quote) => quote.tags);
   const flatTags = new Set(tags.flat());
-  const data = Array.from(flatTags);
-  const dataToShow = data.map((tag) => {
+  const dataFilter = Array.from(flatTags);
+  const dataToShowFilter = dataFilter.map((tag) => {
     return {
       value: tag,
       label: `${tag[0].toUpperCase()}${tag.slice(1, tag.length)}`,
@@ -32,7 +32,7 @@ const FilterQuotes = () => {
         setQuotes(response.data.quotes);
         setFilteredQuotes(
           response.data.quotes.filter((quote) =>
-            quote.tags.some((el) => value.includes(el))
+            quote.tags.some((el) => valueFilter.includes(el))
           )
         );
         console.log(response.data.quotes);
@@ -45,16 +45,16 @@ const FilterQuotes = () => {
       setToShowFiltered(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value, toShowFiltered, filteredQuotes.length]);
+  }, [valueFilter, toShowFiltered, filteredQuotes.length]);
   return (
     <>
       <MultiSelect
         style={{ maxWidth: "65vw" }}
-        data={dataToShow}
+        data={dataToShowFilter}
         label="Select tags to filter Quotes:"
         placeholder="Pick tags that you like"
-        value={value}
-        onChange={setValue}
+        value={valueFilter}
+        onChange={setValueFilter}
         nothingFound="Nothing found"
         clearButtonLabel="Clear selection"
         clearable

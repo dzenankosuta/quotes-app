@@ -5,14 +5,14 @@ import { TokenContext } from "../../context/TokenContext";
 import Quote from "../Quote/Quote";
 
 const SortQuotes = () => {
-  const data = [
+  const dataSort = [
     { value: "author", label: "Author" },
     { value: "content", label: "Content" },
     { value: "createdAt", label: "Date of create" },
     { value: "downvotesCount", label: "Down Votes Count" },
     { value: "upvotesCount", label: "Up Votes Count" },
   ];
-  const [value, setValue] = useState(null);
+  const [valueSelect, setValueSelect] = useState(null);
   const [quotes, setQuotes] = useState([]);
   const [activePage, setPage] = useState(1);
   const pageSize = 5;
@@ -20,12 +20,12 @@ const SortQuotes = () => {
   const totalPages = Math.ceil(totalQuotes / pageSize);
   const { toShowSelected, setToShowSelected } = useContext(TokenContext);
   const sortDirection =
-    value === "author" || value === "content" ? "asc" : "desc";
+    valueSelect === "author" || valueSelect === "content" ? "asc" : "desc";
 
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/quotes?sortBy=${`${value}`}&sortDirection=${sortDirection}&pageSize=${pageSize}&page=${activePage}`,
+        `http://localhost:8000/quotes?sortBy=${`${valueSelect}`}&sortDirection=${sortDirection}&pageSize=${pageSize}&page=${activePage}`,
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("accessToken"),
@@ -38,22 +38,22 @@ const SortQuotes = () => {
         console.log(response.data.quotes);
       })
       .catch((error) => console.log(error));
-    if (value === null) {
+    if (valueSelect === null) {
       setToShowSelected(false);
     } else {
       setToShowSelected(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value, toShowSelected, activePage, totalQuotes]);
+  }, [valueSelect, toShowSelected, activePage, totalQuotes]);
 
   return (
     <>
       <Select
         label="Sort Quotes by:"
         placeholder="Select a Property"
-        data={data}
-        value={value}
-        onChange={setValue}
+        data={dataSort}
+        value={valueSelect}
+        onChange={setValueSelect}
         clearable
       />
       {!toShowSelected ? (
