@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 import { Modal, Button, Group, TextInput, Box } from "@mantine/core";
 
 const AddQuote = () => {
@@ -10,6 +11,40 @@ const AddQuote = () => {
     tags: "",
   });
 
+  const handleNewQuote = (event) => {
+    event.preventDefault();
+    axios
+      .post(
+        `http://localhost:8000/quotes`,
+        {
+          content: userInput.content,
+          author: userInput.author,
+          tags: userInput.tags.split(","),
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("accessToken"),
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+        setTimeout(
+          () =>
+            setUserInput({
+              content: "",
+              author: "",
+              tags: "",
+            }),
+          100
+        );
+        setTimeout(() => setOpened(false), 200);
+      })
+      .catch((error) => {
+        // console.log(error.response.data)
+      });
+  };
+
   return (
     <>
       <Modal
@@ -18,7 +53,7 @@ const AddQuote = () => {
         title="Add a new Quote"
       >
         <Box sx={{ minWidth: 340 }} mx="auto">
-          <form>
+          <form onSubmit={handleNewQuote}>
             <TextInput
               withAsterisk
               label="Content"
