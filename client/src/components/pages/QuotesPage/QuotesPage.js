@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import GoToLogin from "../../modals/GoToLogin";
 import Quote from "../../Quote/Quote";
 import "./QuotesPage.css";
 import { Pagination, Select, MultiSelect } from "@mantine/core";
-import { TokenContext } from "../../../context/TokenContext";
 import AddQuote from "../../modals/AddQuote";
 
 const Quotes = () => {
