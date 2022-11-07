@@ -5,6 +5,7 @@ import Quote from "../../Quote/Quote";
 import "./QuotesPage.css";
 import { Pagination, Select, MultiSelect } from "@mantine/core";
 import { TokenContext } from "../../../context/TokenContext";
+import AddQuote from "../../modals/AddQuote";
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
@@ -140,6 +141,7 @@ const Quotes = () => {
         </>
       ) : (
         <>
+          <AddQuote />
           <MultiSelect
             style={{ maxWidth: "65vw" }}
             data={dataToShowFilter}
