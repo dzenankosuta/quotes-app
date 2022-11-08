@@ -14,10 +14,11 @@ const Quotes = () => {
   const [valueFilter, setValueFilter] = useState([]);
   const [valueSelect, setValueSelect] = useState(null);
   const tagsString = valueFilter.toString();
-  const tags = quotes.map((quote) => quote.tags);
-  const flatTags = new Set(tags.flat());
-  const dataFilter = Array.from(flatTags);
-  const dataToShowFilter = dataFilter.map((tag) => {
+  // const tags = quotes.map((quote) => quote.tags);
+  // const flatTags = new Set(tags.flat());
+  // const dataFilter = Array.from(flatTags);
+  const [tags, setTags] = useState([]);
+  const dataToShowFilter = tags.map((tag) => {
     return {
       value: tag,
       label: `${tag[0].toUpperCase()}${tag.slice(1, tag.length)}`,
@@ -37,7 +38,24 @@ const Quotes = () => {
   const [totalQuotes, setTotalQuotes] = useState(1);
   const totalPages = Math.ceil(totalQuotes / pageSize);
 
+  const getTags = () => {
+    axios
+      .get(`http://localhost:8000/tags`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("accessToken"),
+        },
+      })
+      .then((response) => {
+        // console.log(response.data);
+        setTags(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
+    getTags();
     axios
       .get(
         `http://localhost:8000/quotes?pageSize=${pageSize}&page=${activePage}&tags=${tagsString}&sortBy=${`${valueSelect}`}&sortDirection=${sortDirection}`,
