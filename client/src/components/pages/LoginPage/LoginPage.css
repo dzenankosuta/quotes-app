@@ -32,6 +32,12 @@
   top: 0.7rem;
 }
 
+.paragraf-login {
+  padding: 0.4rem;
+  background-color: rgba(240, 248, 255, 0.8);
+  border-radius: 0.5rem;
+}
+
 .go-to {
   cursor: pointer;
   font-style: italic;
@@ -43,4 +49,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.login-box {
+  padding: 1.5rem;
+  background-color: rgba(240, 248, 255, 0.93);
+  border-radius: 0.5rem;
 }

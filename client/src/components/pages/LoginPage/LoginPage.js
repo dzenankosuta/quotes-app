@@ -54,7 +54,7 @@ const LoginPage = () => {
     <>
       {localStorage.getItem("accessToken") !== "null" ? (
         <div className="section">
-          <p>
+          <p className="paragraf-login">
             <hr className="line2" />
             To see our quotes and rate these please go to{" "}
             <span className="go-to" onClick={() => navigate("/quotes")}>
@@ -65,7 +65,7 @@ const LoginPage = () => {
         </div>
       ) : (
         <div className="main-login">
-          <Box sx={{ minWidth: 340 }} mx="auto">
+          <Box sx={{ minWidth: 340 }} mx="auto" className="login-box">
             <form onSubmit={handleLogin}>
               {invalidCredentials ? (
                 <Alert radius="md" title="Invalid credentials!" color="red">
