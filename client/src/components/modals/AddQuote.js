@@ -118,7 +118,12 @@ const AddQuote = () => {
           uppercase
           color="teal"
           radius="md"
-          style={{ width: "12rem", letterSpacing: "0.07rem" }}
+          style={{
+            width: "12rem",
+            letterSpacing: "0.07rem",
+            position: "relative",
+            top: "1.5rem",
+          }}
         >
           Add new quote
         </Button>

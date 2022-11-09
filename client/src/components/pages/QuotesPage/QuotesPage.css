@@ -10,3 +10,10 @@
 .pagination {
   margin-top: 1rem;
 }
+
+.quotes-func {
+  width: 65vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}

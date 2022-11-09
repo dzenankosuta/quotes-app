@@ -9,14 +9,11 @@ import AddQuote from "../../modals/AddQuote";
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
   const [activePage, setPage] = useState(1);
-  const [toShowFiltered, setToShowFiltered] = useState(false);
-  const [toShowSelected, setToShowSelected] = useState(false);
+  // const [toShowFiltered, setToShowFiltered] = useState(false);
+  // const [toShowSelected, setToShowSelected] = useState(false);
   const [valueFilter, setValueFilter] = useState([]);
   const [valueSelect, setValueSelect] = useState(null);
   const tagsString = valueFilter.toString();
-  // const tags = quotes.map((quote) => quote.tags);
-  // const flatTags = new Set(tags.flat());
-  // const dataFilter = Array.from(flatTags);
   const [tags, setTags] = useState([]);
   const dataToShowFilter = tags.map((tag) => {
     return {
@@ -71,113 +68,48 @@ const Quotes = () => {
         console.log(response.data.quotes);
       })
       .catch((error) => console.log(error));
-    if (valueFilter.length === 0) {
-      setToShowFiltered(false);
-    } else if (valueFilter.length > 0) {
-      setToShowFiltered(true);
-      setToShowSelected(false);
-    }
-    if (valueSelect === null) {
-      setToShowSelected(false);
-    } else {
-      setToShowSelected(true);
-      setToShowFiltered(false);
-    }
+    // if (valueFilter.length === 0) {
+    //   setToShowFiltered(false);
+    // } else if (valueFilter.length > 0) {
+    //   setToShowFiltered(true);
+    //   setToShowSelected(false);
+    // }
+    // if (valueSelect === null) {
+    //   setToShowSelected(false);
+    // } else {
+    //   setToShowSelected(true);
+    //   setToShowFiltered(false);
+    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activePage, totalQuotes, valueFilter, valueFilter.length, valueSelect]);
   return (
     <div className="quotes">
       {localStorage.getItem("accessToken") === "null" ? (
         <GoToLogin />
-      ) : toShowFiltered ? (
-        <>
-          <MultiSelect
-            style={{ maxWidth: "65vw" }}
-            data={dataToShowFilter}
-            label="Select tags to filter Quotes:"
-            placeholder="Pick tags that you like"
-            value={valueFilter}
-            onChange={setValueFilter}
-            nothingFound="Nothing found"
-            clearButtonLabel="Clear selection"
-            clearable
-          />
-          {quotes.map((quote) => (
-            <Quote
-              key={quote.id}
-              content={quote.content}
-              authorName={quote.author}
-              upvotesCount={quote.upvotesCount}
-              downvotesCount={quote.downvotesCount}
-              givenVote={quote.givenVote}
-              id={quote.id}
-            />
-          ))}
-
-          <Pagination
-            className="pagination"
-            page={activePage}
-            onChange={setPage}
-            onClick={window.scrollTo(0, 0)}
-            total={totalPages}
-            color="teal"
-            radius="md"
-          />
-        </>
-      ) : toShowSelected ? (
-        <>
-          <Select
-            label="Sort Quotes by:"
-            placeholder="Select a Property"
-            data={dataSort}
-            value={valueSelect}
-            onChange={setValueSelect}
-            clearable
-          />
-          {quotes.map((quote) => (
-            <Quote
-              key={quote.id}
-              content={quote.content}
-              authorName={quote.author}
-              upvotesCount={quote.upvotesCount}
-              downvotesCount={quote.downvotesCount}
-              givenVote={quote.givenVote}
-              id={quote.id}
-            />
-          ))}
-
-          <Pagination
-            className="pagination"
-            page={activePage}
-            onChange={setPage}
-            onClick={window.scrollTo(0, 0)}
-            total={totalPages}
-            color="teal"
-            radius="md"
-          />
-        </>
       ) : (
         <>
-          <AddQuote />
-          <MultiSelect
-            style={{ maxWidth: "65vw" }}
-            data={dataToShowFilter}
-            label="Select tags to filter Quotes:"
-            placeholder="Pick tags that you like"
-            value={valueFilter}
-            onChange={setValueFilter}
-            nothingFound="Nothing found"
-            clearButtonLabel="Clear selection"
-            clearable
-          />
-          <Select
-            label="Sort Quotes by:"
-            placeholder="Select a Property"
-            data={dataSort}
-            value={valueSelect}
-            onChange={setValueSelect}
-            clearable
-          />
+          <div className="quotes-func">
+            <Select
+              label="Sort Quotes by:"
+              placeholder="Select a Property"
+              data={dataSort}
+              value={valueSelect}
+              onChange={setValueSelect}
+              clearable
+            />
+            <MultiSelect
+              style={{ maxWidth: "50%" }}
+              data={dataToShowFilter}
+              label="Select tags to filter Quotes:"
+              placeholder="Pick tags that you like"
+              value={valueFilter}
+              onChange={setValueFilter}
+              nothingFound="Nothing found"
+              clearButtonLabel="Clear selection"
+              clearable
+            />
+            <AddQuote />
+          </div>
           {quotes.map((quote) => (
             <Quote
               key={quote.id}
