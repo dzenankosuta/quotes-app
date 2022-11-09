@@ -15,7 +15,8 @@ const Quote = ({
   const [downVotesCount, setDownVotesCount] = useState(downvotesCount);
   const totalPercent = 100;
   const percentPerVote = totalPercent / (upVotesCount + downVotesCount);
-  const upvotesPercent = Math.round(upVotesCount * percentPerVote);
+  const upvotesPercent =
+    upVotesCount === 0 ? 0 : Math.round(upVotesCount * percentPerVote);
   const color =
     upvotesPercent <= 20
       ? "color1"
