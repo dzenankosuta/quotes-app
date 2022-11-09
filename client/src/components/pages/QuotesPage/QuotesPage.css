@@ -1,5 +1,6 @@
 .quotes {
-  margin: 3rem auto;
+  margin: 0rem auto;
+  padding: 3rem 0rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

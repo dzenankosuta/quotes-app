@@ -4,12 +4,13 @@ import { Route, Routes } from "react-router-dom";
 import Quotes from "./components/pages/QuotesPage/QuotesPage";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import "./App.css";
 
 function App() {
   return (
     <div>
       <NavBar />
-      <main style={{ minHeight: "50vh" }}>
+      <main className="main-main">
         <Routes>
           <Route path={"/"} element={<LoginPage />} />
           <Route path={"/quotes"} element={<Quotes />} />
