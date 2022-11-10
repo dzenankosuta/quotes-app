@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Modal, Button, Group, TextInput, Box } from "@mantine/core";
 
-const AddQuote = () => {
+const AddQuote = ({ render }) => {
   const [opened, setOpened] = useState(false);
   const [userInput, setUserInput] = useState({
     content: "",
     author: "",
     tags: "",
   });
-
   const handleNewQuote = (event) => {
     event.preventDefault();
     axios
@@ -28,6 +27,7 @@ const AddQuote = () => {
         }
       )
       .then((response) => {
+        render((prev) => !prev);
         console.log(response.data);
         setTimeout(
           () =>
@@ -41,9 +41,13 @@ const AddQuote = () => {
         setTimeout(() => setOpened(false), 200);
       })
       .catch((error) => {
+        render((prev) => !prev);
         // console.log(error.response.data)
       });
   };
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [render]);
 
   return (
     <>

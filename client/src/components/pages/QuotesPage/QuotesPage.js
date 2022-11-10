@@ -9,10 +9,9 @@ import AddQuote from "../../modals/AddQuote";
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
   const [activePage, setPage] = useState(1);
-  // const [toShowFiltered, setToShowFiltered] = useState(false);
-  // const [toShowSelected, setToShowSelected] = useState(false);
   const [valueFilter, setValueFilter] = useState([]);
   const [valueSelect, setValueSelect] = useState(null);
+  const [addQuote, setAddQuote] = useState(false);
   const tagsString = valueFilter.toString();
   const [tags, setTags] = useState([]);
   const dataToShowFilter = tags.map((tag) => {
@@ -68,20 +67,8 @@ const Quotes = () => {
         console.log(response.data.quotes);
       })
       .catch((error) => console.log(error));
-    // if (valueFilter.length === 0) {
-    //   setToShowFiltered(false);
-    // } else if (valueFilter.length > 0) {
-    //   setToShowFiltered(true);
-    //   setToShowSelected(false);
-    // }
-    // if (valueSelect === null) {
-    //   setToShowSelected(false);
-    // } else {
-    //   setToShowSelected(true);
-    //   setToShowFiltered(false);
-    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activePage, totalQuotes, valueFilter, valueFilter.length, valueSelect]);
+  }, [activePage, totalQuotes, valueFilter, valueSelect, addQuote]);
   return (
     <div className="quotes">
       {localStorage.getItem("accessToken") === "null" ? (
@@ -108,7 +95,7 @@ const Quotes = () => {
               clearButtonLabel="Clear selection"
               clearable
             />
-            <AddQuote />
+            <AddQuote render={setAddQuote} />
           </div>
           {quotes.map((quote) => (
             <Quote
