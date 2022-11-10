@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import GoToLogin from "../../modals/GoToLogin";
 import Quote from "../../Quote/Quote";
 import "./QuotesPage.css";
 import { Pagination, Select, MultiSelect } from "@mantine/core";
@@ -71,55 +70,49 @@ const Quotes = () => {
   }, [activePage, totalQuotes, valueFilter, valueSelect, addQuote]);
   return (
     <div className="quotes">
-      {localStorage.getItem("accessToken") === "null" ? (
-        <GoToLogin />
-      ) : (
-        <>
-          <div className="quotes-func">
-            <Select
-              label="Sort Quotes by:"
-              placeholder="Select a Property"
-              data={dataSort}
-              value={valueSelect}
-              onChange={setValueSelect}
-              clearable
-            />
-            <MultiSelect
-              style={{ maxWidth: "50%" }}
-              data={dataToShowFilter}
-              label="Select tags to filter Quotes:"
-              placeholder="Pick tags that you like"
-              value={valueFilter}
-              onChange={setValueFilter}
-              nothingFound="Nothing found"
-              clearButtonLabel="Clear selection"
-              clearable
-            />
-            <AddQuote render={setAddQuote} />
-          </div>
-          {quotes.map((quote) => (
-            <Quote
-              key={quote.id}
-              content={quote.content}
-              authorName={quote.author}
-              upvotesCount={quote.upvotesCount}
-              downvotesCount={quote.downvotesCount}
-              givenVote={quote.givenVote}
-              id={quote.id}
-            />
-          ))}
+      <div className="quotes-func">
+        <Select
+          label="Sort Quotes by:"
+          placeholder="Select a Property"
+          data={dataSort}
+          value={valueSelect}
+          onChange={setValueSelect}
+          clearable
+        />
+        <MultiSelect
+          style={{ maxWidth: "50%" }}
+          data={dataToShowFilter}
+          label="Select tags to filter Quotes:"
+          placeholder="Pick tags that you like"
+          value={valueFilter}
+          onChange={setValueFilter}
+          nothingFound="Nothing found"
+          clearButtonLabel="Clear selection"
+          clearable
+        />
+        <AddQuote render={setAddQuote} />
+      </div>
+      {quotes.map((quote) => (
+        <Quote
+          key={quote.id}
+          content={quote.content}
+          authorName={quote.author}
+          upvotesCount={quote.upvotesCount}
+          downvotesCount={quote.downvotesCount}
+          givenVote={quote.givenVote}
+          id={quote.id}
+        />
+      ))}
 
-          <Pagination
-            className="pagination"
-            page={activePage}
-            onChange={setPage}
-            onClick={window.scrollTo(0, 0)}
-            total={totalPages}
-            color="teal"
-            radius="md"
-          />
-        </>
-      )}
+      <Pagination
+        className="pagination"
+        page={activePage}
+        onChange={setPage}
+        onClick={window.scrollTo(0, 0)}
+        total={totalPages}
+        color="teal"
+        radius="md"
+      />
     </div>
   );
 };

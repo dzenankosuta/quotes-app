@@ -5,6 +5,7 @@ import Quotes from "./components/pages/QuotesPage/QuotesPage";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
+import ProtectedRoute from "./protect/ProtectedRoute";
 
 function App() {
   return (
@@ -13,7 +14,14 @@ function App() {
       <main className="main-main">
         <Routes>
           <Route path={"/"} element={<LoginPage />} />
-          <Route path={"/quotes"} element={<Quotes />} />
+          <Route
+            path={"/quotes"}
+            element={
+              <ProtectedRoute>
+                <Quotes />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </main>
       <Footer />
