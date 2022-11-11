@@ -27,26 +27,23 @@ const LoginPage = () => {
         password: userData.password,
       })
       .then((response) => {
-        console.log(response.data.accessToken);
+        // console.log(response.data.accessToken);
         setInvalidCredentials(false);
         setAccessToken(response.data.accessToken);
         localStorage.setItem("accessToken", response.data.accessToken);
         navigate("/quotes");
         window.scrollTo(0, 0);
-        // console.log(accessToken);
       })
       .catch((error) => {
         if (error.response.status === 401) {
           setInvalidCredentials(true);
           setAccessToken(null);
           localStorage.setItem("accessToken", null);
-          //   console.log(accessToken);
         } else {
           console.log(error);
           setInvalidCredentials(true);
           setAccessToken(null);
           localStorage.setItem("accessToken", null);
-          // console.log(accessToken);
         }
       });
   };

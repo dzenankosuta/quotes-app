@@ -11,7 +11,6 @@ const Quotes = () => {
   const [valueFilter, setValueFilter] = useState([]);
   const [valueSelect, setValueSelect] = useState(null);
   const [addQuote, setAddQuote] = useState(false);
-  const token = localStorage.accessToken;
   const tagsString = valueFilter.toString();
   const [tags, setTags] = useState([]);
   const dataToShowFilter = tags.map((tag) => {
@@ -64,10 +63,11 @@ const Quotes = () => {
       .then((response) => {
         setQuotes(response.data.quotes);
         setTotalQuotes(response.data.quotesCount);
-        console.log(response.data.quotes);
-        console.log(localStorage.accessToken);
+        // console.log(response.data.quotes);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activePage, totalQuotes, valueFilter, valueSelect, addQuote]);
   return (

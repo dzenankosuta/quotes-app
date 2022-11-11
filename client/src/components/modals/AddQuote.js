@@ -28,7 +28,7 @@ const AddQuote = ({ render }) => {
       )
       .then((response) => {
         render((prev) => !prev);
-        console.log(response.data);
+        // console.log(response.data);
         setTimeout(
           () =>
             setUserInput({

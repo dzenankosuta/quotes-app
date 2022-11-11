@@ -8,7 +8,8 @@ const ProtectedRoute = ({ children }) => {
     if (localStorage.accessToken === undefined) {
       handleLogout();
     }
-  }, [accessToken, localStorage.accessToken]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [accessToken]);
   return (
     <>
       {localStorage.getItem("accessToken") === "null" ||
