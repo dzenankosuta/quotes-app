@@ -21,7 +21,7 @@ const NavBar = () => {
         to="/"
       >
         <img
-          src={require("../../images/logo.png")}
+          src={require("../../assets/logo.png")}
           alt="logo"
           className="img"
         />

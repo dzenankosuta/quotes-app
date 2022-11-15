@@ -1,11 +1,11 @@
 import React from "react";
-import LoginPage from "./components/pages/LoginPage/LoginPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 import { Route, Routes } from "react-router-dom";
-import Quotes from "./components/pages/QuotesPage/QuotesPage";
+import Quotes from "./pages/QuotesPage/QuotesPage";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
-import ProtectedRoute from "./protect/ProtectedRoute";
+import ProtectedRoute from "./components/protect/ProtectedRoute";
 
 function App() {
   return (

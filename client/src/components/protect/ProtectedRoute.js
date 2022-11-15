@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import GoToLogin from "../components/modals/GoToLogin";
-import { TokenContext } from "../context/TokenContext";
+import GoToLogin from "../modals/GoToLogin";
+import { TokenContext } from "../../context/TokenContext";
 
 const ProtectedRoute = ({ children }) => {
   const { accessToken, handleLogout } = useContext(TokenContext);

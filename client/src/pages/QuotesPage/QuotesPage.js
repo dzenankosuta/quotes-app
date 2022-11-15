@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Quote from "../../Quote/Quote";
+import Quote from "../../components/Quote/Quote";
 import "./QuotesPage.css";
 import { Pagination, Select, MultiSelect } from "@mantine/core";
-import AddQuote from "../../modals/AddQuote";
+import AddQuote from "../../components/modals/AddQuote";
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
