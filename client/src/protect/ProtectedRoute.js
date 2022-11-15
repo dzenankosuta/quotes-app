@@ -5,19 +5,14 @@ import { TokenContext } from "../context/TokenContext";
 const ProtectedRoute = ({ children }) => {
   const { accessToken, handleLogout } = useContext(TokenContext);
   useEffect(() => {
-    if (localStorage.accessToken === undefined) {
+    if (!localStorage.getItem("accessToken")) {
       handleLogout();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [accessToken]);
+  }, [accessToken, localStorage.getItem("accessToken")]);
   return (
     <>
-      {localStorage.getItem("accessToken") === "null" ||
-      localStorage.accessToken === undefined ? (
-        <GoToLogin />
-      ) : (
-        <>{children}</>
-      )}
+      {!localStorage.getItem("accessToken") ? <GoToLogin /> : <>{children}</>}
     </>
   );
 };

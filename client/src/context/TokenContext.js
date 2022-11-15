@@ -8,7 +8,7 @@ const TokenProvider = ({ children }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     setAccessToken(null);
-    localStorage.setItem("accessToken", null);
+    localStorage.removeItem("accessToken");
     navigate("/");
     window.scrollTo(0, 0);
   };

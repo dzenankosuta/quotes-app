@@ -38,18 +38,18 @@ const LoginPage = () => {
         if (error.response.status === 401) {
           setInvalidCredentials(true);
           setAccessToken(null);
-          localStorage.setItem("accessToken", null);
+          localStorage.removeItem("accessToken");
         } else {
           console.log(error);
           setInvalidCredentials(true);
           setAccessToken(null);
-          localStorage.setItem("accessToken", null);
+          localStorage.removeItem("accessToken");
         }
       });
   };
   return (
     <>
-      {localStorage.getItem("accessToken") !== "null" ? (
+      {localStorage.getItem("accessToken") ? (
         <div className="section">
           <p className="paragraf-login">
             <hr className="line2" />

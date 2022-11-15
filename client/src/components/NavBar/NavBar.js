@@ -5,10 +5,9 @@ import "./NavBar.css";
 
 const NavBar = () => {
   const { handleLogout } = useContext(TokenContext);
-  const btnSecondClass =
-    localStorage.getItem("accessToken") === "null"
-      ? "btn-invisible"
-      : "btn-visible";
+  const btnSecondClass = !localStorage.getItem("accessToken")
+    ? "btn-invisible"
+    : "btn-visible";
   return (
     <div className="navbar">
       <NavLink
