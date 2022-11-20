@@ -5,7 +5,7 @@ import "./QuotesPage.css";
 import { Pagination, Select, MultiSelect } from "@mantine/core";
 import AddQuote from "../../components/modals/AddQuote";
 
-const Quotes = () => {
+const QuotesPage = () => {
   const [quotes, setQuotes] = useState([]);
   const [activePage, setPage] = useState(1);
   const [valueFilter, setValueFilter] = useState([]);
@@ -119,4 +119,4 @@ const Quotes = () => {
   );
 };
 
-export default Quotes;
+export default QuotesPage;

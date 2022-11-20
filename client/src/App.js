@@ -1,7 +1,7 @@
 import React from "react";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import { Route, Routes } from "react-router-dom";
-import Quotes from "./pages/QuotesPage/QuotesPage";
+import QuotesPage from "./pages/QuotesPage/QuotesPage";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
@@ -18,7 +18,7 @@ function App() {
             path={"/quotes"}
             element={
               <ProtectedRoute>
-                <Quotes />
+                <QuotesPage />
               </ProtectedRoute>
             }
           />

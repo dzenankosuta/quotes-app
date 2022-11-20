@@ -3,13 +3,10 @@ import GoToLogin from "../modals/GoToLogin";
 import { TokenContext } from "../../context/TokenContext";
 
 const ProtectedRoute = ({ children }) => {
-  const { accessToken, handleLogout } = useContext(TokenContext);
+  const { accessToken } = useContext(TokenContext);
   useEffect(() => {
-    if (!localStorage.getItem("accessToken")) {
-      handleLogout();
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [accessToken, localStorage.getItem("accessToken")]);
+  }, [accessToken]);
   return (
     <>
       {!localStorage.getItem("accessToken") ? <GoToLogin /> : <>{children}</>}
