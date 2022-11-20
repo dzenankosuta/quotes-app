@@ -102,7 +102,7 @@ const Quote = ({
       <div className="left">
         <button
           disabled={vote === "downvote"}
-          className={`btn2 ${classBtnVote1}`}
+          className={`btn2 ${classBtnVote1} tooltip`}
           onClick={() =>
             vote === "none"
               ? postUpvote()
@@ -112,6 +112,7 @@ const Quote = ({
           }
         >
           &#129081;
+          <span class="tooltiptext">Tooltip text</span>
         </button>
         <p className={`percent ${color}`}>{upvotesPercent}%</p>
         <p className="ratio">
@@ -119,7 +120,7 @@ const Quote = ({
         </p>
         <button
           disabled={vote === "upvote"}
-          className={`btn2 ${classBtnVote2}`}
+          className={`btn2 ${classBtnVote2} tooltip`}
           onClick={() =>
             vote === "none"
               ? postDownvote()
@@ -129,6 +130,7 @@ const Quote = ({
           }
         >
           &#129083;
+          <span class="tooltiptext">Tooltip text</span>
         </button>
       </div>
       <div className="right">

@@ -115,5 +115,35 @@
 .ratio {
   position: relative;
   top: 0.8rem;
+  z-index: 5;
   color: #e4e7e6;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-size: small;
+  min-width: 5rem;
+  background-color: black;
+  background-color: #4e7768;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.2) 0px 2px 4px -1px;
+  color: #f0fffa;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  top: 0.5rem;
+  left: -5rem;
+  z-index: 7;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
