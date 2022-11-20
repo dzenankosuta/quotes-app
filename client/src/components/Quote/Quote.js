@@ -32,6 +32,19 @@ const Quote = ({
   let classBtnVote1 = vote === "upvote" ? "upvote-class" : "vote-class";
   let classBtnVote2 = vote === "downvote" ? "downvote-class" : "vote-class";
 
+  const upvoteMessage =
+    vote === "upvote"
+      ? "Delete your vote"
+      : vote === "downvote"
+      ? "Delete Downvote first"
+      : "I like this quote";
+  const downvoteMessage =
+    vote === "downvote"
+      ? "Delete your vote"
+      : vote === "upvote"
+      ? "Delete Upvote first"
+      : "I don't like this quote";
+
   const postUpvote = () => {
     axios
       .post(`http://localhost:8000/quotes/${id}/upvote`, null, {
@@ -112,7 +125,7 @@ const Quote = ({
           }
         >
           &#129081;
-          <span class="tooltiptext">Tooltip text</span>
+          <span class="tooltiptext">{upvoteMessage}</span>
         </button>
         <p className={`percent ${color}`}>{upvotesPercent}%</p>
         <p className="ratio">
@@ -130,7 +143,7 @@ const Quote = ({
           }
         >
           &#129083;
-          <span class="tooltiptext">Tooltip text</span>
+          <span class="tooltiptext">{downvoteMessage}</span>
         </button>
       </div>
       <div className="right">
