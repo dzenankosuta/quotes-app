@@ -1,4 +1,4 @@
-# This is the project for the Course end
+# This is the project for the end of the IT camp
 
 Project containes folders for API and CLIENT. You only need to modify the client side of the project.
 Open VS Code of the client folder and create the app for the Test.pdf requirements.
@@ -67,6 +67,7 @@ Users you can login with:
     }
 
 ## 2. Add Logout button on the quotes page
+
 ## 3. Create logout logic on the logout button
 
 # Requests that require access token in the header:
@@ -84,7 +85,7 @@ Users you can login with:
     DELETE http://localhost:8000/quotes/:id/upvote
 
     POST http://localhost:8000/quotes/:id/downvote
-    
+
     DELETE http://localhost:8000/quotes/:id/downvote
 
 #Example of the request that uses an accessToken:
@@ -98,3 +99,5 @@ Users you can login with:
       .then((res) => console.log(res))
       .catch((err) => console.log);
     }, []);
+
+## Other instructions can be found in the Test.pdf file inside the Repository.
