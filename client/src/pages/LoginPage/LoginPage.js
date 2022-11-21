@@ -48,76 +48,61 @@ const LoginPage = () => {
       });
   };
   return (
-    <>
-      {localStorage.getItem("accessToken") ? (
-        <div className="section">
-          <p className="paragraf-login">
-            <hr className="line2" />
-            To see our quotes and rate these please go to{" "}
-            <span className="go-to" onClick={() => navigate("/quotes")}>
-              Quotes Page
-            </span>
-            <hr className="line2" />
-          </p>
-        </div>
-      ) : (
-        <div className="main-login">
-          <Box sx={{ minWidth: 340 }} mx="auto" className="login-box">
-            <form onSubmit={handleLogin}>
-              {invalidCredentials ? (
-                <Alert radius="md" title="Invalid credentials!" color="red">
-                  Invalid username or password
-                </Alert>
-              ) : (
-                <></>
-              )}
-              <TextInput
-                withAsterisk
-                label="Username"
-                placeholder="Username"
-                value={userData.username}
-                onChange={(event) =>
-                  setUserData((prev) => ({
-                    ...prev,
-                    username: event.target.value,
-                  }))
-                }
-                required
-              />
-              <PasswordInput
-                withAsterisk
-                label="Password"
-                placeholder="Password"
-                value={userData.password}
-                onChange={(event) =>
-                  setUserData((prev) => ({
-                    ...prev,
-                    password: event.target.value,
-                  }))
-                }
-                required
-              />
+    <div className="main-login">
+      <Box sx={{ minWidth: 340 }} mx="auto" className="login-box">
+        <form onSubmit={handleLogin}>
+          {invalidCredentials ? (
+            <Alert radius="md" title="Invalid credentials!" color="red">
+              Invalid username or password
+            </Alert>
+          ) : (
+            <></>
+          )}
+          <TextInput
+            withAsterisk
+            label="Username"
+            placeholder="Username"
+            value={userData.username}
+            onChange={(event) =>
+              setUserData((prev) => ({
+                ...prev,
+                username: event.target.value,
+              }))
+            }
+            required
+          />
+          <PasswordInput
+            withAsterisk
+            label="Password"
+            placeholder="Password"
+            value={userData.password}
+            onChange={(event) =>
+              setUserData((prev) => ({
+                ...prev,
+                password: event.target.value,
+              }))
+            }
+            required
+          />
 
-              <Group
-                position="right"
-                mt="xl"
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <Button
-                  type="submit"
-                  uppercase
-                  color="teal"
-                  radius="md"
-                  style={{ width: "10rem", letterSpacing: "0.07rem" }}
-                >
-                  LOGIN
-                </Button>
-              </Group>
-            </form>
-          </Box>
-        </div>
-      )}
-    </>
+          <Group
+            position="right"
+            mt="xl"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <Button
+              type="submit"
+              uppercase
+              color="teal"
+              radius="md"
+              style={{ width: "10rem", letterSpacing: "0.07rem" }}
+            >
+              LOGIN
+            </Button>
+          </Group>
+        </form>
+      </Box>
+    </div>
   );
 };
 

@@ -18,7 +18,7 @@ const NavBar = () => {
           top: "0.3rem",
           alignSelf: "flex-end",
         }}
-        to="/"
+        to={localStorage.getItem("accessToken") ? "/quotes" : "/"}
       >
         <img
           src={require("../../assets/logo.png")}

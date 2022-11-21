@@ -1,4 +1,4 @@
-.section {
+/* .section {
   width: 100%;
   height: 50vh;
   padding: 3rem auto;
@@ -42,7 +42,7 @@
   cursor: pointer;
   font-style: italic;
   color: #4a625a;
-}
+} */
 
 .main-login {
   height: 50vh;
