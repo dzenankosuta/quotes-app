@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Quote.css";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const Quote = ({
   id,
@@ -56,6 +57,16 @@ const Quote = ({
         // console.log(response.data.givenVote);
         setUpVotesCount(upVotesCount + 1);
         setVote(response.data.givenVote);
+        toast("Successfully Votes Up!", {
+          icon: "👍",
+          style: {
+            borderRadius: "0.8rem",
+            backgroundColor: "#4e7768",
+            color: "#f0fffa",
+            boxShadow:
+              "rgba(0, 0, 0, 0.6) 0px 4px 6px -1px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px",
+          },
+        });
       })
       .catch((error) => {
         // console.log(error)
@@ -72,6 +83,16 @@ const Quote = ({
         // console.log(response.data.givenVote);
         setUpVotesCount(upVotesCount - 1);
         setVote(response.data.givenVote);
+        toast("Successfully Deleted Vote!", {
+          icon: "✐",
+          style: {
+            borderRadius: "0.8rem",
+            backgroundColor: "#4e7768",
+            color: "#f0fffa",
+            boxShadow:
+              "rgba(0, 0, 0, 0.6) 0px 4px 6px -1px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px",
+          },
+        });
       })
       .catch((error) => {
         // console.log(error);
@@ -88,6 +109,16 @@ const Quote = ({
         // console.log(response.data.givenVote);
         setDownVotesCount(downVotesCount + 1);
         setVote(response.data.givenVote);
+        toast("Successfully Votes Down!", {
+          icon: "👎",
+          style: {
+            borderRadius: "0.8rem",
+            backgroundColor: "#4e7768",
+            color: "#f0fffa",
+            boxShadow:
+              "rgba(0, 0, 0, 0.6) 0px 4px 6px -1px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px",
+          },
+        });
       })
       .catch((error) => {
         // console.log(error);
@@ -104,6 +135,16 @@ const Quote = ({
         // console.log(response.data.givenVote);
         setDownVotesCount(downVotesCount - 1);
         setVote(response.data.givenVote);
+        toast("Successfully Deleted Vote!", {
+          icon: "✐",
+          style: {
+            borderRadius: "0.8rem",
+            backgroundColor: "#4e7768",
+            color: "#f0fffa",
+            boxShadow:
+              "rgba(0, 0, 0, 0.6) 0px 4px 6px -1px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px",
+          },
+        });
       })
       .catch((error) => {
         // console.log(error);

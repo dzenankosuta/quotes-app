@@ -6,10 +6,14 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 import ProtectedRoute from "./components/protect/ProtectedRoute";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div>
+      <div>
+        <Toaster position="bottom-left" reverseOrder={false} />
+      </div>
       <NavBar />
       <main className="main-main">
         <Routes>
