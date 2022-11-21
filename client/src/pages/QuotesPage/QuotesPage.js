@@ -9,7 +9,7 @@ const QuotesPage = () => {
   const [quotes, setQuotes] = useState([]);
   const [activePage, setPage] = useState(1);
   const [valueFilter, setValueFilter] = useState([]);
-  const [valueSelect, setValueSelect] = useState(null);
+  const [valueSelect, setValueSelect] = useState("createdAt");
   const [addQuote, setAddQuote] = useState(false);
   const tagsString = valueFilter.toString();
   const [tags, setTags] = useState([]);
@@ -45,7 +45,7 @@ const QuotesPage = () => {
         setTags(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -66,7 +66,7 @@ const QuotesPage = () => {
         // console.log(response.data.quotes);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activePage, totalQuotes, valueFilter, valueSelect, addQuote]);
