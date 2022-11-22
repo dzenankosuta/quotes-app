@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Modal, Button, Group, TextInput, Box } from "@mantine/core";
+import { toast } from "react-hot-toast";
 
 const AddQuote = ({ render }) => {
   const [opened, setOpened] = useState(false);
@@ -39,6 +40,16 @@ const AddQuote = ({ render }) => {
           100
         );
         setTimeout(() => setOpened(false), 200);
+        toast("Successfully added a new Quote!", {
+          icon: "🎉",
+          style: {
+            borderRadius: "0.8rem",
+            backgroundColor: "#4e7768",
+            color: "#f0fffa",
+            boxShadow:
+              "rgba(0, 0, 0, 0.6) 0px 4px 6px -1px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px",
+          },
+        });
       })
       .catch((error) => {
         render((prev) => !prev);
